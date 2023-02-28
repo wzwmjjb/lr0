@@ -1,0 +1,27 @@
+// The Round Table
+digraph {
+	0 [label="$->.S
+S->.aAcBe" shape=circle]
+	1 [label="$->S." shape=doublecircle]
+	2 [label="S->a.AcBe
+A->.b
+A->.Ab" shape=circle]
+	3 [label="S->aA.cBe
+A->A.b" shape=circle]
+	4 [label="A->b." shape=doublecircle]
+	5 [label="S->aAc.Be
+B->.d" shape=circle]
+	6 [label="A->Ab." shape=doublecircle]
+	7 [label="S->aAcB.e" shape=circle]
+	8 [label="B->d." shape=doublecircle]
+	9 [label="S->aAcBe." shape=doublecircle]
+	0 -> 1 [label=S]
+	0 -> 2 [label=a]
+	2 -> 3 [label=A]
+	2 -> 4 [label=b]
+	3 -> 5 [label=c]
+	3 -> 6 [label=b]
+	5 -> 7 [label=B]
+	5 -> 8 [label=d]
+	7 -> 9 [label=e]
+}
