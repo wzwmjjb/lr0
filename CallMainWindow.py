@@ -31,7 +31,7 @@ class MainForm(QMainWindow, Ui_MainWindow):
 
         dot = Digraph(comment='The Round Table')
         for n in state_list:
-            str_temp = ''
+            str_temp = 'state ' + str(n.num) + ':\n'
             for sp in n.state_projects:
                 str_temp += sp
                 str_temp += '\n'
@@ -42,7 +42,6 @@ class MainForm(QMainWindow, Ui_MainWindow):
                 dot.node(str(n.num), str_temp, shape='circle')
         for e in relation_list:
             dot.edge(str(e.in_state.num), str(e.out_state.num), label=e.character)
-        print(dot.source)
         dot.render('test_output/' + file_name_temp + '_dfa.gv', format='jpg', view=False)  # 生成dfa图
         img_path_dfa = 'test_output/' + file_name_temp + '_dfa.gv.jpg'
         self.showImage = QPixmap(img_path_dfa).scaled(self.label.width(), self.label.height())

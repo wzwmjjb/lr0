@@ -34,10 +34,6 @@ class State(object):
         self.len += 1
         return self.state_projects
 
-    def print_state(self) -> None:  # 输出状态信息
-        print("No.:I" + str(self.num) + "\nlen:" + str(self.len))
-        print(self.state_projects)
-
 
 class Relation(object):
 
@@ -281,16 +277,16 @@ class LR0(object):
                 break
         return analyticable, analyze_table
 
-# if __name__ == '__main__':
-# file_name = "test_data0.txt"
-# language = get_language(file_name=file_name)
-# # print(language)
-#
-# lr0 = LR0(language=language, state_num=0, relation_num=0)
-# language_extended = lr0.extend_language()
-# projects = lr0.generate_projects()
-# # print(projects)
-# state_list, relation_list = lr0.generate_dfa()
-# ag_table = lr0.create_action_goto_table()
-# print(ag_table)
-# analyticable, at = lr0.str_analyze("b")
+
+if __name__ == '__main__':
+    file_name = "test_input/test_data0.txt"
+    language = get_language(file_name=file_name)
+
+
+    lr0 = LR0(language=language, state_num=0, relation_num=0)
+    language_extended = lr0.extend_language()
+    projects = lr0.generate_projects()
+
+    state_list, relation_list = lr0.generate_dfa()
+    ag_table = lr0.create_action_goto_table()
+    analyticable, at = lr0.str_analyze("b")
